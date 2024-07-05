@@ -1,0 +1,38 @@
+
+
+StartIdentifier = encender 
+
+ActionIdentifier = girarDerecha | elevarse | rotarAdelante | girarIzquierda | rotarAtras
+           
+Method = encenderMotor | apagarMotor
+               
+Boolean = true | false
+
+Number = {number}+
+
+"Start Symbol" = <Program>
+
+<Program> ::= <Command>
+
+<Command> ::= <VariableDeclaration> | <MethodDeclaration> | <MethodCall>      
+
+<VariableDeclaration> ::= 'var' StartIdentifier ';' | 'var' ActionIdentifier ';'
+                       
+<Assignment> ::= StartIdentifier '=' Boolean ';' | ActionIdentifier '=' Number ';'
+              
+<Assignments> ::= <Assignments> <Assignment> | <Assignment>
+
+<MethodDeclaration> ::= 'void' Method '(' ')' '{'
+
+<MethodDeclaration> ::= '[' <Assignments> ']'
+
+<MethodDeclaration> ::= '}' ';'                    
+
+<MethodCall> ::= Method '(' ')' ';'
+              
+              
+
+              
+
+
+
